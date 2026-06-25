@@ -1,6 +1,3 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -219,8 +216,8 @@ public void searchBook(String title){
 
     for(Book book : books){
 
-        System.out.println("Stored title: [" + book.title + "]");
-          if(book.title.trim().equalsIgnoreCase(title.trim())) {
+        
+        if(book.title.trim().equalsIgnoreCase(title.trim())) {
 
 
             System.out.println("Book Found");
