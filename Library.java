@@ -17,6 +17,7 @@ public class Library {
     public void addBook(Book book){
 
     books.add(book);
+    FileManager.saveBooks(books);
 
     System.out.println("Book added successfully");
 
@@ -25,7 +26,8 @@ public class Library {
     public void addMember(Member member){
 
         members.add(member);
-
+        
+        FileManager.saveMembers(members);
         System.out.println("Member added successfully");
 
     }
@@ -205,5 +207,38 @@ public void returnBook(int bookId, int memberId){
     System.out.println("Book returned successfully.");
 
 }
+public void searchBook(String title){
+
+
+    boolean found = false;
+
+
+    for(Book book : books){
+
+
+        if(book.title.equalsIgnoreCase(title)){
+
+
+            System.out.println("Book Found");
+
+            book.displayBook();
+
+            found = true;
+
+
+        }
+
+    }
+
+
+
+    if(!found){
+
+        System.out.println("Book not found.");
+
+    }
+
+}
+
 
 }

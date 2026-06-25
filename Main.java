@@ -24,15 +24,13 @@ public class Main {
             System.out.println("4. View Members");
             System.out.println("5. Issue Book");
             System.out.println("6.  Return Book");
-            System.out.println("7. Exit");
+            System.out.println("7. Search Book");
+            System.out.println("8. Exit");
 
 
             System.out.print("Enter your choice: ");
 
             int choice = scanner.nextInt();
-
-
-
             switch(choice){
 
 
@@ -127,7 +125,20 @@ int id = scanner.nextInt();
                     break;
                 
                 case 7:
-                    System.out.println("Exiting the system. Goodbye!");
+                scanner.nextLine();
+
+
+                System.out.print("Enter book title: ");
+
+                String searchTitle = scanner.nextLine();
+
+
+                library.searchBook(searchTitle);
+                    break;
+                
+                case 8:
+                    
+                    System.out.println("Exiting the program...");
                     scanner.close();
                     System.exit(0);
                     break;
