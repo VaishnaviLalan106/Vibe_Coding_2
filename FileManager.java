@@ -74,5 +74,107 @@ public static void saveMembers(ArrayList<Member> members){
     }
 
 }
+public static ArrayList<Book> loadBooks(){
 
+    ArrayList<Book> books = new ArrayList<>();
+
+    try{
+
+        FileReader reader = new FileReader("books.txt");
+
+        BufferedReader br = new BufferedReader(reader);
+
+
+        String line;
+
+
+        while((line = br.readLine()) != null){
+
+            String data[] = line.split(",");
+
+
+            String bookId = data[0];
+
+            String title = data[1];
+
+            String author = data[2];
+
+            boolean isIssued = Boolean.parseBoolean(data[3]);
+
+
+            Book book = new Book(title,author,Integer.parseInt(bookId));
+
+
+            book.isIssued = isIssued;
+
+
+            books.add(book);
+
+        }
+
+
+        br.close();
+
+
+    }
+    catch(IOException e){
+
+        System.out.println("No book data found.");
+
+    }
+
+
+    return books;
+
+}
+public static ArrayList<Member> loadMembers(){
+
+    ArrayList<Member> members = new ArrayList<>();
+
+    try{
+
+        FileReader reader = new FileReader("members.txt");
+
+        BufferedReader br = new BufferedReader(reader);
+
+
+        String line;
+
+
+        while((line = br.readLine()) != null){
+
+
+            String data[] = line.split(",");
+
+
+            int id = Integer.parseInt(data[0]);
+
+            String name = data[1];
+
+
+            Member member = new Member(
+                    id,
+                    name
+            );
+
+
+            members.add(member);
+
+        }
+
+
+        br.close();
+
+
+    }
+    catch(IOException e){
+
+        System.out.println("No member data found.");
+
+    }
+
+
+    return members;
+
+}
 }

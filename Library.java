@@ -1,3 +1,6 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 
 
@@ -10,8 +13,8 @@ public class Library {
 
     public Library(){
 
-        books = new ArrayList<>();
-        members = new ArrayList<>();
+        books = FileManager.loadBooks();
+        members = FileManager.loadMembers();
 
     }
     public void addBook(Book book){
@@ -128,6 +131,7 @@ public void issueBook(int bookId, int memberId){
     selectedBook.isIssued = true;
 
     selectedMember.borrowedBooks.add(selectedBook);
+    FileManager.saveBooks(books);
 
 
     System.out.println("Book issued successfully.");
@@ -203,7 +207,7 @@ public void returnBook(int bookId, int memberId){
 
     selectedMember.borrowedBooks.remove(selectedBook);
 
-
+    FileManager.saveBooks(books);
     System.out.println("Book returned successfully.");
 
 }
@@ -239,6 +243,7 @@ public void searchBook(String title){
     }
 
 }
+
 
 
 }
