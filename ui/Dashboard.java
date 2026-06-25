@@ -1,10 +1,12 @@
 package ui;
 
-
 import javafx.geometry.Insets;
-import javafx.scene.layout.*;
-import javafx.scene.control.*;
-import javafx.scene.paint.Color;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+
 
 
 public class Dashboard {

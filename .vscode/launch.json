@@ -1,0 +1,13 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch Library Management System",
+            "request": "launch",
+            "mainClass": "ui.Main",
+            "projectName": "Vibe_Coding_2",
+            "vmArgs": "--module-path C:/Users/ghk20/Downloads/openjfx-24.0.2_windows-x64_bin-sdk/javafx-sdk-24.0.2/lib --add-modules javafx.controls,javafx.fxml"
+        }
+    ]
+}

@@ -1,8 +1,9 @@
 package ui;
-
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+
+
 
 
 public class Main extends Application {
@@ -12,11 +13,9 @@ public class Main extends Application {
     public void start(Stage stage){
 
 
-        Dashboard dashboard = new Dashboard();
-
-
+        Dashboard board = new Dashboard();
         Scene scene = new Scene(
-                dashboard.getView(),
+                board.getView(),
                 1100,
                 700
         );
