@@ -1,7 +1,8 @@
+package model;
 import java.util.ArrayList;
 public class Member {
-    int memberId;
-    String memberName;
+    private int memberId;
+    private String memberName;
     ArrayList<Book> borrowedBooks;
 
 
@@ -38,6 +39,22 @@ public class Member {
         }
 
     }
+    public int getMemberId(){
+
+    return memberId;
 
 }
 
+
+public String getMemberName(){
+
+    return memberName;
+
+}
+public ArrayList<Book> getBorrowedBooks(){
+
+    return borrowedBooks;
+
+
+}
+}

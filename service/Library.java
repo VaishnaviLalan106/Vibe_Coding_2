@@ -1,4 +1,8 @@
+package service;
 import java.util.ArrayList;
+
+import model.Book;
+import model.Member;
 
 
 public class Library {
@@ -78,7 +82,7 @@ public void issueBook(int bookId, int memberId){
     // Find book
     for(Book book : books){
 
-        if(book.bookId == bookId){
+        if(book.getBookId() == bookId){
 
             selectedBook = book;
             break;
@@ -91,7 +95,7 @@ public void issueBook(int bookId, int memberId){
     // Find member
     for(Member member : members){
 
-        if(member.memberId == memberId){
+        if(member.getMemberId() == memberId){
 
             selectedMember = member;
             break;
@@ -117,7 +121,7 @@ public void issueBook(int bookId, int memberId){
     }
 
 
-    if(selectedBook.isIssued){
+    if(selectedBook.isIssued()){
 
         System.out.println("Book already issued.");
         return;
@@ -125,9 +129,9 @@ public void issueBook(int bookId, int memberId){
     }
 
 
-    selectedBook.isIssued = true;
+    selectedBook.setIssued(true);
 
-    selectedMember.borrowedBooks.add(selectedBook);
+    selectedMember.getBorrowedBooks().add(selectedBook);
     FileManager.saveBooks(books);
 
 
@@ -146,7 +150,7 @@ public void returnBook(int bookId, int memberId){
 
     for(Book book : books){
 
-        if(book.bookId == bookId){
+        if(book.getBookId() == bookId){
 
             selectedBook = book;
             break;
@@ -161,7 +165,7 @@ public void returnBook(int bookId, int memberId){
 
     for(Member member : members){
 
-        if(member.memberId == memberId){
+        if(member.getMemberId() == memberId){
 
             selectedMember = member;
             break;
@@ -189,7 +193,7 @@ public void returnBook(int bookId, int memberId){
 
 
 
-    if(!selectedBook.isIssued){
+    if(!selectedBook.isIssued()){
 
         System.out.println("This book is already available.");
 
@@ -199,10 +203,10 @@ public void returnBook(int bookId, int memberId){
 
 
 
-    selectedBook.isIssued = false;
+    selectedBook.setIssued(false);
 
 
-    selectedMember.borrowedBooks.remove(selectedBook);
+    selectedMember.getBorrowedBooks().remove(selectedBook);
 
     FileManager.saveBooks(books);
     System.out.println("Book returned successfully.");
@@ -217,7 +221,7 @@ public void searchBook(String title){
     for(Book book : books){
 
         
-        if(book.title.trim().equalsIgnoreCase(title.trim())) {
+        if(book.getTitle().trim().equalsIgnoreCase(title.trim())) {
 
 
             System.out.println("Book Found");

@@ -1,5 +1,9 @@
+package service;
+
 import java.io.*;
 import java.util.ArrayList;
+import model.Book;
+import model.Member;
 
 
 public class FileManager {
@@ -13,10 +17,10 @@ public class FileManager {
         for(Book book : books){
 
             writer.write(
-                book.bookId + "," +
-                book.title + "," +
-                book.author + "," +
-                book.isIssued
+                book.getBookId() + "," +
+                book.getTitle() + "," +
+                book.getAuthor() + "," +
+                book.isIssued()
             );
 
 
@@ -50,8 +54,8 @@ public static void saveMembers(ArrayList<Member> members){
 
 
             writer.write(
-                member.memberId + "," +
-                member.memberName
+                member.getMemberId() + "," +
+                member.getMemberName()
             );
 
 
@@ -105,7 +109,7 @@ public static ArrayList<Book> loadBooks(){
             Book book = new Book(title,author,Integer.parseInt(bookId));
 
 
-            book.isIssued = isIssued;
+            book.setIssued(isIssued);
 
 
             books.add(book);

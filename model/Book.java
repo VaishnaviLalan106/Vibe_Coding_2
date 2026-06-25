@@ -1,3 +1,4 @@
+package model;
 public class Book {
 
     String title;
@@ -30,5 +31,39 @@ public class Book {
         }
 
     }
+    public int getBookId(){
+
+    return bookId;
+
+}
+
+
+public String getTitle(){
+
+    return title;
+
+}
+
+
+public String getAuthor(){
+
+    return author;
+
+}
+
+
+public boolean isIssued(){
+
+    return isIssued;
+
+}
+
+
+public void setIssued(boolean issued){
+
+    this.isIssued = issued;
+
+}
+
 
 }
