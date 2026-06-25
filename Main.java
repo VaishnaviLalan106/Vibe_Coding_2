@@ -21,7 +21,8 @@ public class Main {
             System.out.println("1. Add Book");
             System.out.println("2. View Books");
             System.out.println("3. Add Member");
-            System.out.println("4. Exit");
+            System.out.println("4. View Members");
+            System.out.println("5. Exit");
 
 
             System.out.print("Enter your choice: ");
@@ -35,26 +36,68 @@ public class Main {
 
                 case 1:
 
-                    System.out.println("Add Book selected");
+                    scanner.nextLine(); // clears leftover enter key
+
+System.out.print("Enter book title: ");
+String title = scanner.nextLine();
+
+
+System.out.print("Enter author name: ");
+String author = scanner.nextLine();
+
+
+System.out.print("Enter book ID: ");
+int id = scanner.nextInt();
+
+
+                    Book newBook = new Book(title, author, id);
+                    library.addBook(newBook);
                     break;
 
 
 
                 case 2:
 
-                    System.out.println("View Books selected");
+                    library.displayBooks();
                     break;
 
 
 
                 case 3:
 
-                    System.out.println("Add Member selected");
+                    scanner.nextLine();
+
+    System.out.print("Enter member ID: ");
+    int memberId = scanner.nextInt();
+
+
+    scanner.nextLine();
+
+
+    System.out.print("Enter member name: ");
+    String memberName = scanner.nextLine();
+
+
+
+    Member newMember = new Member(
+            memberId,
+            memberName
+    );
+
+
+    library.addMember(newMember);
                     break;
 
 
 
                 case 4:
+
+                    library.displayMembers();
+                    break;
+
+
+
+                case 5:
 
                     System.out.println("Exiting...");
                     System.exit(0);

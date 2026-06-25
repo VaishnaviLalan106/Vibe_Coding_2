@@ -29,6 +29,43 @@ public class Library {
         System.out.println("Member added successfully");
 
     }
+    public void displayBooks(){
 
+    if(books.isEmpty()){
+
+        System.out.println("No books available.");
+
+    }
+    else{
+
+        for(Book book : books){
+
+            book.displayBook();
+            System.out.println("----------------");
+
+        }
+
+    }
+
+}
+public void displayMembers(){
+
+    if(members.isEmpty()){
+
+        System.out.println("No members available.");
+
+    }
+    else{
+
+        for(Member member : members){
+
+            member.displayMember();
+            System.out.println("----------------");
+
+        }
+
+    }
+
+}
 
 }
