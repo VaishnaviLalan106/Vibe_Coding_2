@@ -215,8 +215,8 @@ public void searchBook(String title){
 
     for(Book book : books){
 
-
-        if(book.title.equalsIgnoreCase(title)){
+        System.out.println("Stored title: [" + book.title + "]");
+          if(book.title.trim().equalsIgnoreCase(title.trim())) {
 
 
             System.out.println("Book Found");
