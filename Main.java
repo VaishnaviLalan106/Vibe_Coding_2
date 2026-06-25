@@ -22,7 +22,9 @@ public class Main {
             System.out.println("2. View Books");
             System.out.println("3. Add Member");
             System.out.println("4. View Members");
-            System.out.println("5. Exit");
+            System.out.println("5. Issue Book");
+            System.out.println("6.  Return Book");
+            System.out.println("7. Exit");
 
 
             System.out.print("Enter your choice: ");
@@ -99,10 +101,36 @@ int id = scanner.nextInt();
 
                 case 5:
 
-                    System.out.println("Exiting...");
+                    System.out.print("Enter book ID to issue: ");
+                    int bookId = scanner.nextInt();
+
+                    System.out.print("Enter member ID: ");
+                    int issueMemberId = scanner.nextInt();
+
+                    library.issueBook(bookId, issueMemberId);
+                    break;
+
+
+
+                case 6:
+
+                    System.out.print("Enter book ID: ");
+    int returnBookId = scanner.nextInt();
+
+
+    System.out.print("Enter member ID: ");
+    int returnMemberId = scanner.nextInt();
+
+
+
+    library.returnBook(returnBookId, returnMemberId);
+                    break;
+                
+                case 7:
+                    System.out.println("Exiting the system. Goodbye!");
+                    scanner.close();
                     System.exit(0);
-
-
+                    break;
 
                 default:
 
