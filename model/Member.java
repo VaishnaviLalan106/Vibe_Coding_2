@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Member {
     private int memberId;
     private String memberName;
-    ArrayList<Book> borrowedBooks;
+    private ArrayList<Book> borrowedBooks;
 
 
     public Member(int memberId, String memberName){
@@ -32,7 +32,7 @@ public class Member {
 
             for(Book book : borrowedBooks){
 
-                System.out.println(book.title);
+                System.out.println(book.getTitle());
 
             }
 

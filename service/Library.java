@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import model.Book;
 import model.Member;
 
-
 public class Library {
 
 
@@ -16,6 +15,8 @@ public class Library {
 
         books = FileManager.loadBooks();
         members = FileManager.loadMembers();
+         System.out.println("Books loaded: " + books.size());
+    System.out.println("Members loaded: " + members.size());
 
     }
     public void addBook(Book book){
@@ -133,6 +134,7 @@ public void issueBook(int bookId, int memberId){
 
     selectedMember.getBorrowedBooks().add(selectedBook);
     FileManager.saveBooks(books);
+    FileManager.saveMembers(members);
 
 
     System.out.println("Book issued successfully.");
@@ -209,6 +211,7 @@ public void returnBook(int bookId, int memberId){
     selectedMember.getBorrowedBooks().remove(selectedBook);
 
     FileManager.saveBooks(books);
+    FileManager.saveMembers(members);
     System.out.println("Book returned successfully.");
 
 }

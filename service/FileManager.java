@@ -1,17 +1,20 @@
 package service;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
+
 import model.Book;
 import model.Member;
-
 
 public class FileManager {
         public static void saveBooks(ArrayList<Book> books){
 
     try{
 
-        FileWriter writer = new FileWriter("books.txt");
+        FileWriter writer = new FileWriter("data/books.txt");
 
 
         for(Book book : books){
@@ -47,7 +50,7 @@ public static void saveMembers(ArrayList<Member> members){
 
     try{
 
-        FileWriter writer = new FileWriter("members.txt");
+        FileWriter writer = new FileWriter("data/members.txt");
 
 
         for(Member member : members){
