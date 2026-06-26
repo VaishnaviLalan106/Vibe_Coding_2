@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="left-panel">
+        <h1>📚 Library Management</h1>
+
+        <input type="text" placeholder="Book Title" id="bookTitle" />
+
+        <input type="text" placeholder="Author Name" id="author" />
+
+        <input type="number" placeholder="Book ID" id="bookId" />
+
+        <button>Add Book</button>
+
+        <button>View Books</button>
+
+        <button>Search Book</button>
+
+        <button>Issue Book</button>
+
+        <button>Return Book</button>
+
+        <button>Add Member</button>
+      </div>
+
+      <div class="right-panel">
+        <h2>Available Books</h2>
+
+        <div id="bookList">
+          <div class="book-card">
+            <h3>Harry Potter</h3>
+
+            <p>Author: J.K Rowling</p>
+
+            <span> Available </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

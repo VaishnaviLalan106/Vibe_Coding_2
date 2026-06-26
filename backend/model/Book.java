@@ -1,4 +1,5 @@
-package model;
+package backend.model;
+
 public class Book {
 
     String title;

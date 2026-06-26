@@ -1,8 +1,9 @@
+package backend;
 import java.util.Scanner;
 
-import model.Book;
-import model.Member;
-import service.Library;
+import backend.model.Book;
+import backend.model.Member;
+import backend.service.Library;
 
 public class Main {
     public static void main(String[] args) {

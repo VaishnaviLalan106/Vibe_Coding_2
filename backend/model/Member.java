@@ -1,12 +1,14 @@
-package model;
+package backend.model;
+
 import java.util.ArrayList;
+
 public class Member {
+
     private int memberId;
     private String memberName;
     private ArrayList<Book> borrowedBooks;
 
-
-    public Member(int memberId, String memberName){
+    public Member(int memberId, String memberName) {
 
         this.memberId = memberId;
         this.memberName = memberName;
@@ -15,22 +17,20 @@ public class Member {
 
     }
 
-
-    public void displayMember(){
+    public void displayMember() {
 
         System.out.println("Member ID: " + memberId);
         System.out.println("Name: " + memberName);
 
         System.out.println("Borrowed Books:");
 
-        if(borrowedBooks.isEmpty()){
+        if (borrowedBooks.isEmpty()) {
 
             System.out.println("No books borrowed");
 
-        }
-        else{
+        } else {
 
-            for(Book book : borrowedBooks){
+            for (Book book : borrowedBooks) {
 
                 System.out.println(book.getTitle());
 
@@ -39,22 +39,22 @@ public class Member {
         }
 
     }
-    public int getMemberId(){
 
-    return memberId;
+    public int getMemberId() {
 
-}
+        return memberId;
 
+    }
 
-public String getMemberName(){
+    public String getMemberName() {
 
-    return memberName;
+        return memberName;
 
-}
-public ArrayList<Book> getBorrowedBooks(){
+    }
 
-    return borrowedBooks;
+    public ArrayList<Book> getBorrowedBooks() {
 
+        return borrowedBooks;
 
-}
+    }
 }
