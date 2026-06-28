@@ -10,178 +10,156 @@ import backend.model.Book;
 import backend.model.Member;
 
 public class FileManager {
-        public static void saveBooks(ArrayList<Book> books){
 
-    try{
+    public static void saveBooks(ArrayList<Book> books) {
 
-        FileWriter writer = new FileWriter("data/books.txt");
+        try {
 
+            FileWriter writer = new FileWriter("backend/data/books.txt");
 
-        for(Book book : books){
+            for (Book book : books) {
 
-            writer.write(
-                book.getBookId() + "," +
-                book.getTitle() + "," +
-                book.getAuthor() + "," +
-                book.isIssued()
-            );
+                writer.write(
+                        book.getBookId() + ","
+                        + book.getTitle() + ","
+                        + book.getAuthor() + ","
+                        + book.isIssued()
+                );
 
+                writer.write("\n");
 
-            writer.write("\n");
+            }
+
+            writer.close();
+
+            System.out.println("Books saved successfully");
+
+        } catch(IOException e){
+
+    e.printStackTrace();
+
+}
+
+    }
+
+    public static void saveMembers(ArrayList<Member> members) {
+
+        try {
+
+            FileWriter writer = new FileWriter("backend/data/members.txt");
+
+            for (Member member : members) {
+
+                writer.write(
+                        member.getMemberId() + ","
+                        + member.getMemberName()
+                );
+
+                writer.write("\n");
+
+            }
+
+            writer.close();
+
+            System.out.println("Members saved successfully");
+
+        } catch (IOException e) {
+
+            System.out.println("Error saving members");
 
         }
 
-
-        writer.close();
-
-
-        System.out.println("Books saved successfully");
-
-
-    }
-    catch(IOException e){
-
-        System.out.println("Error saving books");
-
     }
 
-}
-public static void saveMembers(ArrayList<Member> members){
+    public static ArrayList<Book> loadBooks() {
 
-    try{
+        ArrayList<Book> books = new ArrayList<>();
 
-        FileWriter writer = new FileWriter("data/members.txt");
+        try {
 
+            FileReader reader = new FileReader("backend/data/books.txt");
 
-        for(Member member : members){
+            BufferedReader br = new BufferedReader(reader);
 
+            String line;
 
-            writer.write(
-                member.getMemberId() + "," +
-                member.getMemberName()
-            );
+            while ((line = br.readLine()) != null) {
 
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
 
-            writer.write("\n");
+                String data[] = line.split(",");
+
+                String bookId = data[0];
+
+                String title = data[1];
+
+                String author = data[2];
+
+                boolean isIssued = Boolean.parseBoolean(data[3]);
+
+                Book book = new Book(title, author, Integer.parseInt(bookId));
+
+                book.setIssued(isIssued);
+
+                books.add(book);
+
+            }
+
+            br.close();
+
+        } catch (IOException e) {
+
+            System.out.println("No book data found.");
 
         }
 
-
-        writer.close();
-
-
-        System.out.println("Members saved successfully");
-
-
-    }
-    catch(IOException e){
-
-        System.out.println("Error saving members");
+        return books;
 
     }
 
-}
-public static ArrayList<Book> loadBooks(){
+    public static ArrayList<Member> loadMembers() {
 
-    ArrayList<Book> books = new ArrayList<>();
+        ArrayList<Member> members = new ArrayList<>();
 
-    try{
+        try {
 
-        FileReader reader = new FileReader("books.txt");
+            FileReader reader = new FileReader("backend/data/members.txt");
 
-        BufferedReader br = new BufferedReader(reader);
+            BufferedReader br = new BufferedReader(reader);
 
+            String line;
 
-        String line;
+            while ((line = br.readLine()) != null) {
 
+                if (line.trim().isEmpty()) {
+                    continue;
+                }
+                String data[] = line.split(",");
 
-        while((line = br.readLine()) != null){
+                int id = Integer.parseInt(data[0]);
 
-            String data[] = line.split(",");
+                String name = data[1];
 
+                Member member = new Member(
+                        id,
+                        name
+                );
 
-            String bookId = data[0];
+                members.add(member);
 
-            String title = data[1];
+            }
 
-            String author = data[2];
+            br.close();
 
-            boolean isIssued = Boolean.parseBoolean(data[3]);
+        } catch (IOException e) {
 
-
-            Book book = new Book(title,author,Integer.parseInt(bookId));
-
-
-            book.setIssued(isIssued);
-
-
-            books.add(book);
+            System.out.println("No member data found.");
 
         }
 
-
-        br.close();
-
+        return members;
 
     }
-    catch(IOException e){
-
-        System.out.println("No book data found.");
-
-    }
-
-
-    return books;
-
-}
-public static ArrayList<Member> loadMembers(){
-
-    ArrayList<Member> members = new ArrayList<>();
-
-    try{
-
-        FileReader reader = new FileReader("members.txt");
-
-        BufferedReader br = new BufferedReader(reader);
-
-
-        String line;
-
-
-        while((line = br.readLine()) != null){
-
-
-            String data[] = line.split(",");
-
-
-            int id = Integer.parseInt(data[0]);
-
-            String name = data[1];
-
-
-            Member member = new Member(
-                    id,
-                    name
-            );
-
-
-            members.add(member);
-
-        }
-
-
-        br.close();
-
-
-    }
-    catch(IOException e){
-
-        System.out.println("No member data found.");
-
-    }
-
-
-    return members;
-
-}
 }
